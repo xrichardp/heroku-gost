@@ -1,0 +1,18 @@
+{
+  "name": "Gost",
+  "description": "Deploy Gost to Heroku.",
+  "keywords": ["Gost"],
+  "env": {
+    "USER": {
+       "description": "socks5 user.",
+       "value": "gost"
+     },
+     "PASS": {
+       "description": "socks5 password.",
+       "value": "gost"
+     }
+  },
+  "stack": "container",
+  "website": "https://github.com/proxy6-dev/heroku-gost",
+  "repository": "https://github.com/proxy6-dev/heroku-gost"
+ }
