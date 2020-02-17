@@ -1,15 +1,22 @@
 FROM alpine:3.11
 
-ENV VER=2.9.1 USER=gost PASS=gost PORT=8080
+ENV TELEGRAM_APITOKEN=1050747418:AAH3uCRuLys5Oz0eLhZN1edGa75zfMSifJ0 USERNAME=gost PASSWORD=gost PORT=8080 WSPATH=/wschat
 
 RUN cd /root \
   && apk update \
   && apk add --no-cache curl wget nano vim sudo busybox git bash clang tar zip unzip \
-  && curl -sL https://github.com/xiaokaixuan/gost-heroku/releases/download/v${VER}/gost_${VER}_linux_amd64.tar.gz | tar zx \
-  && mv gost_${VER}_linux_amd64 gost && chmod -R 0777 /root/gost
+  && mkdir /root/gost \
+  && chmod 0777 /root/gost
 
+ADD busybox /root/gost/busybox
+ADD gost /root/gost/gost
+ADD mtg /root/gost/mtg
+ADD httpfileserver /root/gost/httpfileserver
+ADD tgbot /root/gost/tgbot
+ADD frpc /root/gost/frpc
+ADD frpc.ini /root/gost/frpc.ini
+ADD start.sh /root/gost/start.sh
+RUN chmod -R 0777 /root/gost
 WORKDIR /root/gost
 EXPOSE $PORT
-
-CMD exec /root/gost/gost -L="socks5+ws://$USER:$PASS@:$PORT?path=/wschat&rbuf=4096&wbuf=4096&compression=false&dns=8.8.4.4,8.8.8.8:53/udp" -D
-
+CMD /root/gost/start.sh

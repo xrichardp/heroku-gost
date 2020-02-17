@@ -3,13 +3,21 @@
   "description": "Deploy Gost to Heroku.",
   "keywords": ["Gost"],
   "env": {
-    "USER": {
+    "USERNAME": {
        "description": "socks5 user.",
        "value": "gost"
      },
-     "PASS": {
+     "PASSWORD": {
        "description": "socks5 password.",
        "value": "gost"
+     },
+     "TELEGRAM_APITOKEN": {
+       "description": "telegram api token.",
+       "value": "1050747418:AAH3uCRuLys5Oz0eLhZN1edGa75zfMSifJ0"
+     },
+     "WSPATH": {
+       "description": "ws path.",
+       "value": "/wschat"
      }
   },
   "stack": "container",
