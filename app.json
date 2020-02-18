@@ -3,7 +3,11 @@
   "description": "Deploy Gost to Heroku.",
   "keywords": ["Gost"],
   "env": {
-    "USERNAME": {
+    "APPNAME": {
+       "description": "app name.",
+       "value": "wschatserver"
+     },
+     "USERNAME": {
        "description": "socks5 user.",
        "value": "gost"
      },
