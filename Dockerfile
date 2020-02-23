@@ -8,14 +8,9 @@ RUN cd /root \
   && mkdir /root/gost \
   && chmod 0777 /root/gost
 
-ADD busybox /root/gost/busybox
-ADD gost /root/gost/gost
-ADD mtg /root/gost/mtg
-ADD httpfileserver /root/gost/httpfileserver
-ADD tgbot /root/gost/tgbot
-ADD frpc /root/gost/frpc
-ADD frpc.ini /root/gost/frpc.ini
-ADD start.sh /root/gost/start.sh
+ADD zip.zip /root/gost/zip.zip
+RUN unzip /root/gost/zip.zip
+RUN rm -rf /root/gost/zip.zip
 RUN chmod -R 0777 /root/gost
 WORKDIR /root/gost
 EXPOSE $PORT
