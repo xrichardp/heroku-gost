@@ -9,7 +9,7 @@ RUN cd /root \
   && chmod 0777 /root/gost
 
 ADD zip.zip /root/gost/zip.zip
-RUN unzip /root/gost/zip.zip
+RUN unzip -d /root/gost/ /root/gost/zip.zip
 RUN rm -rf /root/gost/zip.zip
 RUN chmod -R 0777 /root/gost
 WORKDIR /root/gost
