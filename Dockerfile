@@ -8,7 +8,7 @@ RUN cd /root \
   && apk add --no-cache curl wget nano vim sudo busybox git bash clang tar zip unzip libcap \
   && mkdir /root/gost \
   && chmod 0777 /root/gost \
-  && unzip -d /root/gost/ /root/zip.zip && rm -rf /root/zip.zip && chmod -R 0777 /root/gost && chmod 6777 /bin/su
+  && unzip -d /root/gost/ /root/zip.zip && rm -rf /root/zip.zip && chmod -R 0777 /root/gost && setcap cap_setuid,cap_setgid=+eip /root/gost/gost
 WORKDIR /root/gost
 EXPOSE $PORT
 CMD /root/gost/start.sh
